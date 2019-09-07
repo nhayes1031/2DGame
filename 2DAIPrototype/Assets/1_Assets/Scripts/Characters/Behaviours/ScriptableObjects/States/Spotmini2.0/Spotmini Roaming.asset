@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656cf4ac62f6472438be8acf142ee40f, type: 3}
+  m_Name: Spotmini Roaming
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: c2be2ccc122268c43a8707477db9ff1d, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: b0b80fa44b38ca746ad9caae422a0372, type: 2}
+    trueState: {fileID: 11400000, guid: fc327bf7bedee0744870b4b96ecf69b2, type: 2}
+    falseState: {fileID: 11400000, guid: c855fac037528a94abd9a3ece53014f6, type: 2}

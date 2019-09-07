@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Platformer.Scripts.Physics;
+using UnityEngine;
 
 namespace Platformer.Scripts.Characters.Nanoobs
 {
@@ -96,63 +97,6 @@ namespace Platformer.Scripts.Characters.Nanoobs
                     collisions.above = directionY == 1;
                 }
             }
-        }
-
-        private float DistanceBetweenTwoPoints(Vector2 p1, Vector2 p2)
-        {
-            float horzDist = Mathf.Pow(p2.x - p1.x, 2);
-            float vertDist = Mathf.Pow(p2.y - p1.y, 2);
-            return Mathf.Sqrt(horzDist + vertDist);
-        }
-
-        public Vector2 CheckForCollisionAt(Vector2 desiredMove)
-        {
-            float directionX = collisions.faceDir;
-            Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
-
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, Mathf.Abs(desiredMove.x), collisionMask);
-            if (hit)
-            {
-                Debug.DrawRay(new Vector2(rayOrigin.x + skinWidth, rayOrigin.y), Vector2.right * directionX * hit.distance, Color.green, 10.0f);
-                float distanceMinusSkinWidth = directionX * (hit.distance - skinWidth);
-                Debug.Log(distanceMinusSkinWidth);
-
-                // Move onto checking behind the end point
-                Vector2 newTopLeft = new Vector2(raycastOrigins.topLeft.x + desiredMove.x, raycastOrigins.topLeft.y + desiredMove.y + skinWidth);
-                Vector2 newTopRight = new Vector2(raycastOrigins.topRight.x + desiredMove.x, raycastOrigins.topRight.y + desiredMove.y + skinWidth);
-                Vector2 newBottomLeft = new Vector2(raycastOrigins.bottomLeft.x + desiredMove.x, raycastOrigins.bottomLeft.y + desiredMove.y);
-                Vector2 newBottomRight = new Vector2(raycastOrigins.bottomRight.x + desiredMove.x, raycastOrigins.bottomRight.y + desiredMove.y);
-
-                RaycastHit2D hit2 = Physics2D.Raycast(newTopLeft, Vector2.right, DistanceBetweenTwoPoints(newTopLeft, newTopRight), collisionMask);
-                if (hit2)
-                {
-                    desiredMove.x = distanceMinusSkinWidth;
-                    return desiredMove;
-                }
-
-                hit2 = Physics2D.Raycast(newTopRight, Vector2.down, DistanceBetweenTwoPoints(newTopRight, newBottomRight), collisionMask);
-                if (hit2)
-                {
-                    desiredMove.x = distanceMinusSkinWidth;
-                    return desiredMove;
-                }
-
-                hit2 = Physics2D.Raycast(newBottomRight, Vector2.left, DistanceBetweenTwoPoints(newBottomRight, newBottomLeft), collisionMask);
-                if (hit2)
-                {
-                    desiredMove.x = distanceMinusSkinWidth;
-                    return desiredMove;
-                }
-
-                hit2 = Physics2D.Raycast(newBottomLeft, Vector2.up, DistanceBetweenTwoPoints(newBottomLeft, newTopLeft), collisionMask);
-                if (hit2)
-                {
-                    desiredMove.x = distanceMinusSkinWidth;
-                    return desiredMove;
-                }
-            }
-
-            return desiredMove;
         }
 
         public struct CollisionInfo
