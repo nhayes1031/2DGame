@@ -7,9 +7,6 @@ public class FloatReference
     public float ConstantValue;
     public FloatVariable Variable;
 
-    public FloatReference()
-    { }
-
     public FloatReference(float value)
     {
         UseConstant = true;

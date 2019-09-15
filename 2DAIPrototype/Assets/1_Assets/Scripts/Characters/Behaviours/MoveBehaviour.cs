@@ -1,12 +1,12 @@
-﻿using System.Linq;
+﻿using Platformer.Saving;
+using System.Linq;
 using UnityEngine;
 
 namespace Platformer.Scripts.Characters.Behaviours
 {
     [RequireComponent(typeof(ColliderBehaviour))]
-    public class MoveBehaviour : MonoBehaviour
+    public class MoveBehaviour : MonoBehaviour, ISaveable
     {
-
         [SerializeField] private int moveSpeed;
 
         private ColliderBehaviour coll;
@@ -52,6 +52,16 @@ namespace Platformer.Scripts.Characters.Behaviours
             float targetVelocityX = desiredMove.x * moveSpeed;
             velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, accelerationTimeGrounded);
             return velocity;
+        }
+
+        public object CaptureState()
+        {
+            return new SerializableVector3(transform.position);
+        }
+
+        public void RestoreState(object state)
+        {
+            transform.position = ((SerializableVector3)state).ToVector();
         }
     }
 }

@@ -10,6 +10,14 @@ namespace Platformer.Scripts.Characters.Behaviours
         public CollisionInfo collisions;
         private Vector2 velocity;
 
+        // Down
+        // gravity effects velocity.y
+        // Movement effects velocity.x
+
+        // Up
+        // gravity effects velocity.y negatively
+        // Movement effects velocity.x
+
         public Vector2 Velocity
         {
             get { return velocity; }
@@ -19,14 +27,19 @@ namespace Platformer.Scripts.Characters.Behaviours
             }
         }
 
-        public override void Start()
+        protected override void Awake()
+        {
+            base.Awake();
+        }
+
+        protected override void Start()
         {
             base.Start();
             collisions.faceDir = 1;
             velocity = Vector2.zero;
         }
 
-        public void FixedUpdate()
+        private void FixedUpdate()
         {
             ApplyGravity();
             Move(velocity * Time.deltaTime);

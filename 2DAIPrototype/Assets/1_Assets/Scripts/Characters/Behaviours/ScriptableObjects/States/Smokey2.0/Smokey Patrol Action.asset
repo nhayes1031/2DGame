@@ -13,6 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   checkForLedge: 0
+  territorial: 1
+  roamDistance: 7
   collisionMask:
     serializedVersion: 2
     m_Bits: 512

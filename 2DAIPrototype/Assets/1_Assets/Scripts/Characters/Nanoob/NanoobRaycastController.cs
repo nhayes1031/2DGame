@@ -6,7 +6,7 @@ namespace Platformer.Scripts.Characters.Nanoobs
     public class NanoobRaycastController : RaycastController {
         public CollisionInfo collisions;
 
-        public override void Start()
+        protected override void Start()
         {
             base.Start();
             collisions.faceDir = 1;

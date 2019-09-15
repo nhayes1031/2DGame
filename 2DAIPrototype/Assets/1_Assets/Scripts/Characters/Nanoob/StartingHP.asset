@@ -8,11 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2663e0fb94df4e443b2064943d133137, type: 3}
-  m_Name: PatrolAction
+  m_Script: {fileID: 11500000, guid: fb9e8959a82853f4db0edd3955bc3753, type: 3}
+  m_Name: StartingHP
   m_EditorClassIdentifier: 
-  speed: 0.994
-  checkForLedge: 1
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 512
+  DeveloperDescription: 
+  Value: 100

@@ -9,7 +9,6 @@ namespace Platformer.Scripts.Characters.Behaviours
 
         [SerializeField] private float maxJumpHeight = 4;
         [SerializeField] private float minJumpHeight = 1;
-        [SerializeField] private FloatReference gravity;
 
         private ColliderBehaviour coll;
         private IController ctrl;
@@ -31,7 +30,7 @@ namespace Platformer.Scripts.Characters.Behaviours
 
             coll = gameObject.GetComponent<ColliderBehaviour>();
 
-            minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
+            minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(coll.gravity) * minJumpHeight);
         }
 
         private void OnDestroy()
@@ -49,7 +48,7 @@ namespace Platformer.Scripts.Characters.Behaviours
         {
             if (coll.collisions.below)
             {
-                coll.AddImpulseForce(new Vector2(0, maxJumpHeight / gravity));
+                coll.AddImpulseForce(new Vector2(0, maxJumpHeight / coll.gravity));
             }
         }
 

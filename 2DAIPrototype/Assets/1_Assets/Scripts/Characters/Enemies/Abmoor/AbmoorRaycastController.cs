@@ -8,7 +8,7 @@ namespace Platformer.Scripts.Characters.Enemies.Abmoor
         public CollisionInfo collisions;
         public Direction stickyDirection;
 
-        public override void Start()
+        protected override void Start()
         {
             base.Start();
             collisions.faceDir = 1;

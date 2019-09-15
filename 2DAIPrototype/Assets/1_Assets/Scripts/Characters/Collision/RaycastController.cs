@@ -26,12 +26,12 @@ namespace Platformer.Scripts.Physics
         [HideInInspector]
         public RaycastOrigins raycastOrigins;
 
-        public virtual void Awake()
+        protected virtual void Awake()
         {
             collider = GetComponent<BoxCollider2D>();
         }
 
-        public virtual void Start()
+        protected virtual void Start()
         {
             CalculateRaySpacing();
         }

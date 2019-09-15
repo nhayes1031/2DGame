@@ -19,10 +19,13 @@ namespace Platformer.Scripts.Characters.Behaviours
         public ColliderBehaviour coll;
         [HideInInspector]
         public float jumpTimer;
+        [HideInInspector]
+        public Vector2 origin;
 
         private void Start()
         {
             coll = gameObject.GetComponent<ColliderBehaviour>();
+            origin = transform.position;
         }
 
         private void Update()
