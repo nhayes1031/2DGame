@@ -16646,8 +16646,9 @@ GameObject:
   - component: {fileID: 1719415149}
   - component: {fileID: 1719415148}
   - component: {fileID: 1719415147}
+  - component: {fileID: 1719415150}
   m_Layer: 0
-  m_Name: AttackSprite_0 (1)
+  m_Name: TestSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16662,7 +16663,7 @@ Animator:
   m_GameObject: {fileID: 1719415146}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eb8ea0dd8dcdd1046808227a0f67596e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6845866bd4a8f814398abadb0d48d480, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -16706,7 +16707,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e91d7d237286a854cb9bab38bd957ba1, type: 3}
+  m_Sprite: {fileID: 21300018, guid: c59317d99c14a8f43bd46067430b783c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -16730,6 +16731,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1719415150
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719415146}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.37048924, y: 0.8214673}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.125, y: 2.3125}
+    newSize: {x: 2.125, y: 2.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.85315204, y: 1.642935}
+  m_EdgeRadius: 0
 --- !u!1 &1879920093
 GameObject:
   m_ObjectHideFlags: 0
