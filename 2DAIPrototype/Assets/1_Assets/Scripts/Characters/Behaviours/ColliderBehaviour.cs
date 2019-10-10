@@ -6,6 +6,7 @@ namespace Platformer.Scripts.Characters.Behaviours
     public class ColliderBehaviour : RaycastController
     {
         [SerializeField] public FloatReference gravity;
+        [SerializeField] public float drag = 0.5f;
 
         public CollisionInfo collisions;
         private Vector2 velocity;
@@ -35,10 +36,23 @@ namespace Platformer.Scripts.Characters.Behaviours
         {
             ApplyGravity();
             Move(velocity * Time.deltaTime);
+            ApplyDrag();
 
             if (collisions.above || collisions.below)
             {
                 velocity.y = 0;
+            }
+        }
+
+        private void ApplyDrag()
+        {
+            if (velocity.x > 0)
+            {
+                velocity -= new Vector2(drag, 0);
+            }
+            if (velocity.x < 0)
+            {
+                velocity.x = 0;
             }
         }
 
@@ -87,7 +101,8 @@ namespace Platformer.Scripts.Characters.Behaviours
             {
                 theScale.x *= collisions.faceDir;
                 transform.parent.transform.localScale = theScale;
-            } else if (theScale.x < 0 && collisions.faceDir == 1)
+            }
+            else if (theScale.x < 0 && collisions.faceDir == 1)
             {
                 theScale.x *= -collisions.faceDir;
                 transform.parent.transform.localScale = theScale;

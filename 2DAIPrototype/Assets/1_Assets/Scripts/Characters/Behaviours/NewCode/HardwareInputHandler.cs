@@ -23,11 +23,11 @@ namespace Platformer.Scripts.Characters.Behaviours
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
                 leftCom.Execute(gameObject);
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D))
             {
                 rightCom.Execute(gameObject);
             }

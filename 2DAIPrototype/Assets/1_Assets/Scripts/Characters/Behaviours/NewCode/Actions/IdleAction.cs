@@ -6,7 +6,6 @@ namespace Platformer.Scripts.Characters.StateMachine
     public class IdleAction : Action
     {
         public override void Act(GameObject obj) {
-            Debug.Log("Idle");
         }
 
         public override void OnEnter() {
