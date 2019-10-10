@@ -1,10 +1,8 @@
 ﻿using Platformer.Saving;
-using System.Linq;
 using UnityEngine;
 
 namespace Platformer.Scripts.Characters.Behaviours
 {
-    [RequireComponent(typeof(ColliderBehaviour))]
     public class MoveBehaviour : MonoBehaviour, ISaveable
     {
         [SerializeField] private int moveSpeed;
@@ -16,9 +14,11 @@ namespace Platformer.Scripts.Characters.Behaviours
         private float velocityXSmoothing;
         private Vector2 velocity;
 
+        private Animator anim;
+
         private void Start()
         {
-            ctrl = gameObject.GetComponents<Component>().OfType<IController>().FirstOrDefault();
+            ctrl = gameObject.GetComponentInChildren<IController>();
 
             if (ctrl == null)
             {
@@ -28,7 +28,8 @@ namespace Platformer.Scripts.Characters.Behaviours
 
             ctrl.OnMove += HandleOnMove;
 
-            coll = gameObject.GetComponent<ColliderBehaviour>();
+            coll = gameObject.GetComponentInChildren<ColliderBehaviour>();
+            anim = gameObject.GetComponent<Animator>();
         }
 
         private void OnDestroy()
@@ -44,7 +45,11 @@ namespace Platformer.Scripts.Characters.Behaviours
         private void HandleOnMove(Vector2 desiredMove)
         {
             Vector2 velocity = CalculateVelocity(desiredMove);
-            coll.Velocity = velocity;
+
+            anim.SetFloat(Animator.StringToHash("X"), velocity.x);
+            anim.SetFloat(Animator.StringToHash("Y"), velocity.y);
+
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Move")) coll.Velocity = velocity;
         }
 
         private Vector2 CalculateVelocity(Vector2 desiredMove)

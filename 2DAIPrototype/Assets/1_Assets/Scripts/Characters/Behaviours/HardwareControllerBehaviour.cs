@@ -9,6 +9,7 @@ namespace Platformer.Scripts.Characters.Behaviours
         public event Action<Vector2> OnLook;
         public event Action OnJump;
         public event Action OnJumpReleased;
+        public event Action OnAttack;
 
         private void Update()
         {
@@ -21,39 +22,42 @@ namespace Platformer.Scripts.Characters.Behaviours
             CheckLook();
             CheckJump();
             CheckJumpReleased();
+            CheckAttack();
         }
 
         private void CheckMove()
         {
             Vector2 move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            if (OnMove != null)
-            {
-                OnMove(move);
-            }
+            OnMove?.Invoke(move);
         }
 
         private void CheckLook()
         {
             Vector2 look = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-            if (OnLook != null)
-            {
-                OnLook(look);
-            }
+            OnLook?.Invoke(look);
         }
 
         private void CheckJump()
         {
-            if (Input.GetButtonDown("Jump") && OnJump != null)
+            if (Input.GetButtonDown("Jump"))
             {
-                OnJump();
+                OnJump?.Invoke();
             }
         }
 
         private void CheckJumpReleased()
         {
-            if (Input.GetButtonUp("Jump") && OnJumpReleased != null)
+            if (Input.GetButtonUp("Jump"))
             {
-                OnJumpReleased();
+                OnJumpReleased?.Invoke();
+            }
+        }
+
+        private void CheckAttack()
+        {
+            if (Input.GetButtonDown("Left Click"))
+            {
+                OnAttack?.Invoke();
             }
         }
     }

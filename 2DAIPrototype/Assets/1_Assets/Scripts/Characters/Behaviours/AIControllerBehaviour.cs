@@ -14,6 +14,7 @@ namespace Platformer.Scripts.Characters.Behaviours
         public event Action<Vector2> OnLook;
         public event System.Action OnJump;
         public event System.Action OnJumpReleased;
+        public event System.Action OnAttack;
 
         [HideInInspector]
         public ColliderBehaviour coll;

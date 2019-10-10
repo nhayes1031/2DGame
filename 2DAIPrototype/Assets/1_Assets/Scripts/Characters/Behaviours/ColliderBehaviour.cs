@@ -10,14 +10,6 @@ namespace Platformer.Scripts.Characters.Behaviours
         public CollisionInfo collisions;
         private Vector2 velocity;
 
-        // Down
-        // gravity effects velocity.y
-        // Movement effects velocity.x
-
-        // Up
-        // gravity effects velocity.y negatively
-        // Movement effects velocity.x
-
         public Vector2 Velocity
         {
             get { return velocity; }
@@ -84,7 +76,22 @@ namespace Platformer.Scripts.Characters.Behaviours
                 collisions.below = true;
             }
 
-            transform.Translate(desiredMove);
+            transform.parent.transform.Translate(desiredMove);
+            FlipTransformAlongZ();
+        }
+
+        private void FlipTransformAlongZ()
+        {
+            Vector3 theScale = transform.parent.transform.localScale;
+            if (theScale.x > 0 && collisions.faceDir == -1)
+            {
+                theScale.x *= collisions.faceDir;
+                transform.parent.transform.localScale = theScale;
+            } else if (theScale.x < 0 && collisions.faceDir == 1)
+            {
+                theScale.x *= -collisions.faceDir;
+                transform.parent.transform.localScale = theScale;
+            }
         }
 
         private void HorizontalCollisions(ref Vector2 moveAmount)
