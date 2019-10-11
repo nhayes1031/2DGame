@@ -23,15 +23,7 @@ namespace Platformer.Scripts.Characters.Behaviours
 
         private void Update()
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                leftCom.Execute(gameObject);
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                rightCom.Execute(gameObject);
-            }
-            else if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump"))
             {
                 jumpCom.Execute(gameObject);
             }
@@ -42,6 +34,14 @@ namespace Platformer.Scripts.Characters.Behaviours
             else if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 attackCom.Execute(gameObject);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                leftCom.Execute(gameObject);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                rightCom.Execute(gameObject);
             }
             else
             {
