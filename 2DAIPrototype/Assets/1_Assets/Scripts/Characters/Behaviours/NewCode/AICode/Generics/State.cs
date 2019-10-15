@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Platformer.Scripts.Characters.AI.Newcode
 {
-    [CreateAssetMenu(menuName = "AI/State")]
+    [CreateAssetMenu(menuName = "AI/State2")]
     public class State : ScriptableObject
     {
         public Action[] actions;

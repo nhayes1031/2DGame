@@ -17,7 +17,7 @@ namespace Platformer.Scripts.Characters.Behaviours
 
         private void Start()
         {
-            coll = gameObject.GetComponent<ColliderBehaviour>();
+            coll = gameObject.GetComponentInChildren<ColliderBehaviour>();
             origin = transform.position;
         }
 
