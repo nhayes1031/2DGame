@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 522}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -70,10 +70,10 @@ MonoBehaviour:
     y: 0
     width: 558
     height: 947
-  m_MinSize: {x: 232, y: 494}
-  m_MaxSize: {x: 10002, y: 14044}
+  m_MinSize: {x: 232, y: 472}
+  m_MaxSize: {x: 10002, y: 14022}
   vertical: 1
-  controlID: 38
+  controlID: 44
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -93,8 +93,8 @@ MonoBehaviour:
     y: 0
     width: 558
     height: 509
-  m_MinSize: {x: 202, y: 222}
-  m_MaxSize: {x: 4002, y: 4022}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -122,12 +122,12 @@ MonoBehaviour:
     height: 315
   m_MinSize: {x: 104, y: 122}
   m_MaxSize: {x: 4004, y: 4022}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 16}
   - {fileID: 15}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 344}
   m_MaxSize: {x: 4004, y: 8044}
   vertical: 1
-  controlID: 101
+  controlID: 113
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -175,7 +175,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 522}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &8
 MonoBehaviour:
@@ -242,10 +242,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 713, y: 494}
-  m_MaxSize: {x: 18008, y: 14044}
+  m_MinSize: {x: 711, y: 472}
+  m_MaxSize: {x: 18006, y: 14022}
   vertical: 0
-  controlID: 100
+  controlID: 112
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -293,8 +293,8 @@ MonoBehaviour:
     y: 0
     width: 392
     height: 947
-  m_MinSize: {x: 277, y: 72}
-  m_MaxSize: {x: 4002, y: 4022}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -433,14 +433,14 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 557
+    x: 558
     y: 705
-    width: 1051
+    width: 968
     height: 296
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 19156
+  m_LastSelectedObjectID: 19142
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -498,6 +498,7 @@ MonoBehaviour:
     - {fileID: 1107833554303605538, guid: f686decb25c5d8944bb6738767a47f8f, type: 2}
     - {fileID: 1107372397174954440, guid: 6845866bd4a8f814398abadb0d48d480, type: 2}
     - {fileID: -9112422638313160275, guid: 573af87edab07744ca6d0323e02f1121, type: 2}
+    - {fileID: 8755456095457270679, guid: b6dafe051dacd5841a1e19e4739a0006, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.7225
       e01: 0
@@ -531,14 +532,30 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.42864645
+    - e00: 0.60625
       e01: 0
       e02: 0
-      e03: 13.652618
+      e03: -9.25
       e10: 0
-      e11: 0.42864645
+      e11: 0.60625
       e12: 0
-      e13: 119.55191
+      e13: 143.5
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.61263156
+      e01: 0
+      e02: 0
+      e03: -15.631531
+      e10: 0
+      e11: 0.61263156
+      e12: 0
+      e13: 157.2842
       e20: 0
       e21: 0
       e22: 1
@@ -548,10 +565,10 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 573af87edab07744ca6d0323e02f1121,
+  m_AnimatorController: {fileID: 9100000, guid: b6dafe051dacd5841a1e19e4739a0006,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -9112422638313160275, guid: 573af87edab07744ca6d0323e02f1121,
+  - m_Target: {fileID: 8755456095457270679, guid: b6dafe051dacd5841a1e19e4739a0006,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -601,9 +618,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.03119, y: 2.6007621, z: -49.291348}
+    m_Target: {x: -2.454437, y: 2.4304185, z: -70.94922}
     speed: 2
-    m_Value: {x: -4.03119, y: 2.6007621, z: -49.291348}
+    m_Value: {x: -2.454437, y: 2.4304185, z: -70.94922}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -636,9 +653,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 31.30092
+    m_Target: 10.219131
     speed: 2
-    m_Value: 31.30092
+    m_Value: 9.779073
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -693,23 +710,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 30420000
-      m_LastClickedID: 16944
-      m_ExpandedIDs: 6afbffff
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 9cefffffe6efffffc64a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Spotmini3.0
+        m_OriginalName: Spotmini3.0
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 19142
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -758,7 +775,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/1_Assets/Scripts/Characters/Behaviours/ScriptableObjects/NewCode/Actions
+    - Assets/1_Assets/Animations/Slime
   m_ViewMode: 0
   m_StartGridSize: 16
   m_LastFolders: []
@@ -770,7 +787,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 347e0000
     m_LastClickedID: 32308
-    m_ExpandedIDs: 00000000ec3100004a33000090330000b6330000223400005a340000ae34000042360000a8360000f63600000c37000042370000463700004837000028380000ca380000de3800002e39000066390000fa390000243a0000003b0000663c0000823c00008a3c00008c3c0000b83c0000d23c0000fc3c0000f03d00009a3f0000b43f0000dc3f0000324000000a4400000c4400000e44000010440000124400001444000016440000184400001a4400001c4400001e4400002044000022440000244400002644000028440000
+    m_ExpandedIDs: 000000001c3e0000683f0000a03f0000c03f00000e4000003c40000088400000d2410000224200006242000070420000924200009642000098420000084300007e4300008a430000d24300000444000074440000964400003445000066460000824600008a4600008c460000ae460000c2460000e8460000b4470000284900004249000066490000b8490000f24c0000f44c0000f64c0000f84c0000fa4c0000fc4c0000fe4c0000004d0000024d0000044d0000064d0000084d00000a4d00000c4d00000e4d0000104d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -795,24 +812,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 279}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000ec3100004a33000090330000b6330000223400005a340000ae34000042360000a8360000f63600000c37000042370000463700004837000028380000ca380000de3800002e39000066390000fa390000243a0000003b0000663c0000823c00008a3c00008c3c0000b83c0000d23c0000fc3c0000f03d00009a3f0000b43f0000dc3f0000324000000a4400000c4400000e44000010440000124400001444000016440000184400001a4400001c4400001e4400002044000022440000244400002644000028440000
+    m_ExpandedIDs: ffffffff000000001c3e0000683f0000a03f0000c03f00000e4000003c40000088400000d2410000224200006242000070420000924200009642000098420000084300007e4300008a430000d2430000044400009644000066460000824600008a4600008c460000ae460000c2460000e8460000b4470000284900004249000066490000b8490000f24c0000f44c0000f64c0000f84c0000fa4c0000fc4c0000fe4c0000004d0000024d0000044d0000064d0000084d00000a4d00000c4d00000e4d0000104d0000d04d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Spotmini Anim Controller
+      m_OriginalName: Spotmini Anim Controller
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: -4810
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
