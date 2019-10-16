@@ -93,8 +93,6 @@ namespace Platformer.Scripts.Characters.AI.Newcode
 
         private void Patrol(AiInputHandler controller)
         {
-            Vector2 move = Vector2.zero;
-            move.x = speed * direction;
             command.Execute(controller.gameObject);
         }
     }

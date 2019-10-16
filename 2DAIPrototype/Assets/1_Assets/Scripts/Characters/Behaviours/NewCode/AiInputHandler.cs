@@ -15,6 +15,8 @@ namespace Platformer.Scripts.Characters.Behaviours
         [HideInInspector]
         public Vector2 origin;
 
+        public GameObject target;
+
         private void Start()
         {
             coll = gameObject.GetComponentInChildren<ColliderBehaviour>();
