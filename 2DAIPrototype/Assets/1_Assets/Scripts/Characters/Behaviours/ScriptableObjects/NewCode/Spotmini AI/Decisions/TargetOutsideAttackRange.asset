@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: TargetInRange
+  m_Name: TargetOutsideAttackRange
   m_EditorClassIdentifier: Assembly-CSharp:Platformer.Scripts.Characters.AI.Newcode:DistanceFromTargeDecision
   distance: 1.7
-  equality: 1
+  equality: 0
