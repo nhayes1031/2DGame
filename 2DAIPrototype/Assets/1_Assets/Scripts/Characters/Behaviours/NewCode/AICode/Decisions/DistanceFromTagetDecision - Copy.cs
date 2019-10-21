@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Platformer.Scripts.Characters.AI.Newcode
 {
-    [CreateAssetMenu(menuName = "AI/Decisions/DistanceFromTarget")]
-    public class DistanceFromTargeDecision : Decision
+    [CreateAssetMenu(menuName = "AI/Decisions/DistanceFromTagetDecision")]
+    public class DistanceFromTagetDecision : Decision
     {
         public float distance;
         public Equality equality = Equality.greaterThan;

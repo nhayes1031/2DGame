@@ -15,7 +15,7 @@ namespace Platformer.Scripts.Characters.Behaviours
         [HideInInspector]
         public Vector2 origin;
 
-        public GameObject target;
+        public GameObject target { get; private set; }
 
         private void Start()
         {
@@ -34,6 +34,11 @@ namespace Platformer.Scripts.Characters.Behaviours
             {
                 state = nextState;
             }
+        }
+
+        public void SetNewTarget(GameObject target)
+        {
+            this.target = target;
         }
     }
 }
