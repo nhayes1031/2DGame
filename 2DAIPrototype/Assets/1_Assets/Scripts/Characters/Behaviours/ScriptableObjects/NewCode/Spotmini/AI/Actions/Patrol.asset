@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66eea3cd88d160642b28c4797461646c, type: 3}
-  m_Name: TargetInAttackRange
+  m_Script: {fileID: 11500000, guid: 4825b29df3d0aa446b48c6b7075f7494, type: 3}
+  m_Name: Patrol
   m_EditorClassIdentifier: 
-  distance: 1.7
-  equality: 1
+  speed: 1
+  checkForLedge: 0
+  territorial: 0
+  roamDistance: 100
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 512

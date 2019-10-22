@@ -1,5 +1,4 @@
-﻿using MyBox;
-using Platformer.Scripts.Characters.Behaviours;
+﻿using Platformer.Scripts.Characters.Behaviours;
 using UnityEngine;
 
 namespace Platformer.Scripts.Characters.AI.Newcode
