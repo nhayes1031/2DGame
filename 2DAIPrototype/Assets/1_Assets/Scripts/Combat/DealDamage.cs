@@ -8,6 +8,6 @@ public class DealDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponentInParent<Health2>().TakeDamage(damage);
+        collision.GetComponentInParent<Health>().TakeDamage(damage);
     }
 }

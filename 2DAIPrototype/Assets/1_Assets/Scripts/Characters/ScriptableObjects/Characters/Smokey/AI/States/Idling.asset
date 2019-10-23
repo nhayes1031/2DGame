@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ca65b7c32aed142b2c28859c5a1e3e, type: 3}
+  m_Name: Idling
+  m_EditorClassIdentifier: 
+  actions: []
+  transitions:
+  - decision: {fileID: 11400000, guid: 903d77d883c0d9c4399212a14883ca4f, type: 2}
+    trueState: {fileID: 11400000, guid: 663614e4f3e6aad48aff8142e2db7f22, type: 2}
+    falseState: {fileID: 11400000, guid: 1b61a2f3a0e16ae4f882bcf39fa77479, type: 2}
+  - decision: {fileID: 11400000, guid: bfdec0841a67bbc4eb185d5c04b8a181, type: 2}
+    trueState: {fileID: 11400000, guid: ac0853d4944ad1e42bfc2a06ef2e6a65, type: 2}
+    falseState: {fileID: 11400000, guid: 1b61a2f3a0e16ae4f882bcf39fa77479, type: 2}
