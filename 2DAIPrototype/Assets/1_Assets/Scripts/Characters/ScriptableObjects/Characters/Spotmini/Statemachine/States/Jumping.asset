@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642736d8ef835504bb6e4fe5b1ba2b4d, type: 3}
+  m_Name: Jumping
+  m_EditorClassIdentifier: 
+  action: {fileID: 11400000, guid: d87bc2b0bc8f1784898bc19bf64890a6, type: 2}
+  transitions:
+  - reason: 1
+    trueState: {fileID: 11400000, guid: 175add05328a3c9439b7a08454e75654, type: 2}
+  - reason: 2
+    trueState: {fileID: 11400000, guid: 60cd4e8e79fa1fe47b5ea63f555bf72e, type: 2}
+  - reason: 5
+    trueState: {fileID: 11400000, guid: 34039f1d6e0250d4fb867c18000873ab, type: 2}

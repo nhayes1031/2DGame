@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642736d8ef835504bb6e4fe5b1ba2b4d, type: 3}
+  m_Name: MovingRight
+  m_EditorClassIdentifier: 
+  action: {fileID: 11400000, guid: adaa261f81ce2cd4599e1257e9c497d4, type: 2}
+  transitions:
+  - reason: 2
+    trueState: {fileID: 11400000, guid: f944bbd6b8b5d834abf2664a4c47f6e9, type: 2}
