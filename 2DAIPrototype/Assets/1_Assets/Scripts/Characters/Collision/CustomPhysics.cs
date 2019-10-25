@@ -7,6 +7,7 @@ public class CustomPhysics : MonoBehaviour
     public float minGroundNormalY = 0.65f;
     public float gravityModifier = 1f;
 
+    protected Vector2 targetVelocity;
     protected bool grounded;
     protected Vector2 groundNormal;
 
@@ -31,17 +32,31 @@ public class CustomPhysics : MonoBehaviour
         contactFilter.useLayerMask = true;
     }
 
+    private void Update()
+    {
+        targetVelocity = Vector2.zero;
+        ComputeVelocity();
+    }
+
     private void FixedUpdate()
     {
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
-
+        velocity.x = targetVelocity.x;
         grounded = false;
 
         Vector2 deltaPosition = velocity * Time.deltaTime;
 
-        Vector2 move = Vector2.up * deltaPosition.y;
+        Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
+        Vector2 move = moveAlongGround * deltaPosition.x;
+        Movement(move, false);
 
+        move = Vector2.up * deltaPosition.y;
         Movement(move, true);
+    }
+
+    protected virtual void ComputeVelocity()
+    {
+
     }
 
     void Movement(Vector2 move, bool yMovement)
