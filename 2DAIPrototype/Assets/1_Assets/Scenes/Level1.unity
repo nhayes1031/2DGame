@@ -826,6 +826,7 @@ GameObject:
   - component: {fileID: 466147653}
   - component: {fileID: 466147652}
   - component: {fileID: 466147651}
+  - component: {fileID: 466147658}
   m_Layer: 10
   m_Name: Spotmini3.0
   m_TagString: Controllable
@@ -854,7 +855,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466147650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11cd3eb4fc08d4d489ef7029b70ea38d, type: 3}
   m_Name: 
@@ -983,6 +984,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &466147658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466147650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00617e413b724c4b9e308346684bcf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: 11400000, guid: 4a2dc734961777d40bcd77c4def125bf, type: 2}
+  delta: 0
+  mTransform: {fileID: 0}
+  coll: {fileID: 0}
+  jumpTimer: 0
+  origin: {x: 0, y: 0}
 --- !u!1 &472696305
 GameObject:
   m_ObjectHideFlags: 0

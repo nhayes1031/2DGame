@@ -10,16 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e09f12a9b8fb5e44eb81fa499afbecc4, type: 3}
-  m_Name: Idle
+  m_Name: Patrolling
   m_EditorClassIdentifier: 
   onFixed:
+  - {fileID: 0}
+  onUpdate:
   - {fileID: 11400000, guid: ef1e0b3f1c91b9d4fb0974d39b528a76, type: 2}
-  onUpdate: []
   onEnter: []
   onExit: []
-  idCount: 1
+  idCount: 2
   transitions:
   - id: 0
-    condition: {fileID: 0}
-    targetState: {fileID: 0}
+    condition: {fileID: 11400000, guid: 539c49e1dd5409e4d8359408ed6c2329, type: 2}
+    targetState: {fileID: 11400000, guid: 032f7c8947fadb94d8c8447891e69bd0, type: 2}
+    disable: 0
+  - id: 1
+    condition: {fileID: 11400000, guid: 91b2c165800c23d4598aa53c4bb4f828, type: 2}
+    targetState: {fileID: 11400000, guid: 0f6678edf7c1da345838cac1d9f8eb20, type: 2}
     disable: 0
