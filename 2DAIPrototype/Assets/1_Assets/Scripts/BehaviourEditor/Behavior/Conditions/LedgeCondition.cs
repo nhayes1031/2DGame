@@ -2,7 +2,7 @@
 
 namespace SA
 {
-    [CreateAssetMenu(menuName = "AI2/Decisions/LedgeCheck")]
+    [CreateAssetMenu(menuName = "AI/Decisions/LedgeCheck")]
     public class LedgeCondition : Condition
     {
         [SerializeField]

@@ -2,7 +2,7 @@
 
 namespace SA
 {
-    [CreateAssetMenu(menuName = "AI2/Actions/Jump")]
+    [CreateAssetMenu(menuName = "AI/Actions/Jump")]
     public class JumpAction : StateActions
     {
         [SerializeField]

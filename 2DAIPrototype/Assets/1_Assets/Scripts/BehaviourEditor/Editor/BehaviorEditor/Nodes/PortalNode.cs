@@ -6,7 +6,7 @@ using UnityEditor;
 
 namespace SA.BehaviorEditor
 {
-	[CreateAssetMenu(menuName = "Editor/Nodes/Portal Node")]
+	//[CreateAssetMenu(menuName = "Editor/Nodes/Portal Node")]
 	public class PortalNode : DrawNode
 	{
 

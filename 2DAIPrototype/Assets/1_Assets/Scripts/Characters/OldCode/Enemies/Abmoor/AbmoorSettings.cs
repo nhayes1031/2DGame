@@ -2,7 +2,6 @@
 
 namespace Platformer.Scripts.Characters.Enemies.Abmoor
 {
-    [CreateAssetMenu(menuName = "Character/Abmoor/Settings", fileName = "AbmoorData")]
     public class AbmoorSettings : ScriptableObject
     {
         [SerializeField]

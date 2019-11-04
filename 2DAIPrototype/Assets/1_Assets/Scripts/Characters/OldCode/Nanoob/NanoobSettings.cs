@@ -2,7 +2,6 @@
 
 namespace Platformer.Scripts.Characters.Nanoobs
 {
-    [CreateAssetMenu(menuName = "Character/Nanoob/Settings", fileName = "NanoobData")]
     public class NanoobSettings : ScriptableObject
     {
         [SerializeField]

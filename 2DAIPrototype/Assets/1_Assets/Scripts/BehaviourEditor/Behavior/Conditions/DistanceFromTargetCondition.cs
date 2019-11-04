@@ -2,7 +2,7 @@
 
 namespace SA
 {
-    [CreateAssetMenu(menuName = "AI2/Decisions/DistanceFromTarget")]
+    [CreateAssetMenu(menuName = "AI/Decisions/DistanceFromTarget")]
     public class DistanceFromTargetCondition : Condition
     {
         public float distance;

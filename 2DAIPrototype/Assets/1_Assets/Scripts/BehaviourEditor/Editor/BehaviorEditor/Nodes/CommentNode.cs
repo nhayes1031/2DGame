@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SA.BehaviorEditor
 {
-    [CreateAssetMenu(menuName = "Editor/Comment Node")]
+    //[CreateAssetMenu(menuName = "Editor/Comment Node")]
     public class CommentNode :DrawNode
     {
         

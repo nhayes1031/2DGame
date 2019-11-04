@@ -2,7 +2,7 @@
 
 namespace SA
 {
-    [CreateAssetMenu(menuName = "AI2/Decisions/GroundedCheck")]
+    [CreateAssetMenu(menuName = "AI/Decisions/GroundedCheck")]
     public class GroundedCondition : Condition
     {
         public override bool CheckCondition(StateManager state)

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SA
 {
-    [CreateAssetMenu(menuName = "AI2/Actions/Attack")]
+    [CreateAssetMenu(menuName = "AI/Actions/Attack")]
     public class AttackAction : StateActions
     {
         private AttackCommand attackCom = new AttackCommand();

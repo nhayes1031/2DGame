@@ -2,7 +2,7 @@
 
 namespace SA
 {
-    [CreateAssetMenu(menuName = "AI2/Decisions/PlayerInRadius")]
+    [CreateAssetMenu(menuName = "AI/Decisions/PlayerInRadius")]
     public class PlayerInRadiusCondition : Condition
     {
         public float radius;

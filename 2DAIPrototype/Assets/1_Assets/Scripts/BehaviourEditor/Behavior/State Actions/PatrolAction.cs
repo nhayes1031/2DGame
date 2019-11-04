@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SA
 {
-    [CreateAssetMenu(menuName = "AI2/Actions/Patrol")]
+    [CreateAssetMenu(menuName = "AI/Actions/Patrol")]
     public class PatrolAction : StateActions
     {
         [SerializeField]

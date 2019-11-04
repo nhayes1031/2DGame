@@ -1,15 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
-using SA;
-using System;
-using System.IO;
 
 namespace SA.BehaviorEditor
 {
-    [CreateAssetMenu(menuName = "Editor/Nodes/State Node")]
+    //[CreateAssetMenu(menuName = "Editor/Nodes/State Node")]
     public class StateNode : DrawNode
     {
         public override void DrawWindow(BaseNode b)

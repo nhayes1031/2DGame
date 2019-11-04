@@ -2,7 +2,7 @@
 
 namespace SA
 {
-    [CreateAssetMenu(menuName = "AI2/Actions/Chase")]
+    [CreateAssetMenu(menuName = "AI/Actions/Chase")]
     public class ChaseAction : StateActions
     {
         public bool checkForLedge = false;

@@ -6,7 +6,7 @@ using SA;
 
 namespace SA.BehaviorEditor
 {
-    [CreateAssetMenu(menuName ="Editor/Transition Node")]
+    //[CreateAssetMenu(menuName ="Editor/Transition Node")]
     public class TransitionNode : DrawNode
     {
       
