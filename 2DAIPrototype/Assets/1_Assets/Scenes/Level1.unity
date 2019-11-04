@@ -824,7 +824,6 @@ GameObject:
   - component: {fileID: 466147654}
   - component: {fileID: 466147657}
   - component: {fileID: 466147653}
-  - component: {fileID: 466147652}
   - component: {fileID: 466147651}
   - component: {fileID: 466147658}
   m_Layer: 10
@@ -848,23 +847,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 11400000, guid: 34039f1d6e0250d4fb867c18000873ab, type: 2}
   remainState: {fileID: 11400000, guid: 722a7b9a1f3ef4d4d91b4697c83ea91e, type: 2}
---- !u!114 &466147652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466147650}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cd3eb4fc08d4d489ef7029b70ea38d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 5c545b30e43b29041a833b0574df925d, type: 2}
-  remainState: {fileID: 11400000, guid: 0e970b51c1e7fe6439df43c4b15000cc, type: 2}
-  coll: {fileID: 0}
-  jumpTimer: 0
-  origin: {x: 0, y: 0}
 --- !u!114 &466147653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1703,8 +1685,8 @@ GameObject:
   - component: {fileID: 1106736535}
   - component: {fileID: 1106736534}
   - component: {fileID: 1106736533}
-  - component: {fileID: 1106736532}
   - component: {fileID: 1106736531}
+  - component: {fileID: 1106736537}
   m_Layer: 10
   m_Name: Smokey
   m_TagString: Controllable
@@ -1743,23 +1725,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 11400000, guid: 50a3b477fad162b4f9a6523dcf2f32d1, type: 2}
   remainState: {fileID: 11400000, guid: ddbedb5ef67e9714fa5e5b3f99096ecf, type: 2}
---- !u!114 &1106736532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106736529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cd3eb4fc08d4d489ef7029b70ea38d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: ac0853d4944ad1e42bfc2a06ef2e6a65, type: 2}
-  remainState: {fileID: 11400000, guid: 1b61a2f3a0e16ae4f882bcf39fa77479, type: 2}
-  coll: {fileID: 0}
-  jumpTimer: 0
-  origin: {x: 0, y: 0}
 --- !u!114 &1106736533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1862,6 +1827,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1106736537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106736529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00617e413b724c4b9e308346684bcf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: 11400000, guid: 4a75438ee0863d246bb4a5a33032f1a4, type: 2}
+  delta: 0
+  mTransform: {fileID: 0}
+  coll: {fileID: 0}
+  jumpTimer: 0
+  origin: {x: 0, y: 0}
 --- !u!1 &1109630190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,8 +1858,8 @@ GameObject:
   - component: {fileID: 1109630196}
   - component: {fileID: 1109630195}
   - component: {fileID: 1109630194}
-  - component: {fileID: 1109630193}
   - component: {fileID: 1109630192}
+  - component: {fileID: 1109630198}
   m_Layer: 10
   m_Name: Roomba
   m_TagString: Controllable
@@ -1914,23 +1897,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 11400000, guid: 9c8b906da35f14244b0fda4da7bc1da1, type: 2}
   remainState: {fileID: 11400000, guid: 4ffbe594969ee0f41bd3d780a01ad627, type: 2}
---- !u!114 &1109630193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109630190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cd3eb4fc08d4d489ef7029b70ea38d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: abd997949932ed544b6567302bd5ef87, type: 2}
-  remainState: {fileID: 11400000, guid: 1e292274181cd9142823d29abfc02cb6, type: 2}
-  coll: {fileID: 0}
-  jumpTimer: 0
-  origin: {x: 0, y: 0}
 --- !u!114 &1109630194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,6 +1999,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1109630198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109630190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00617e413b724c4b9e308346684bcf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: 11400000, guid: 02d565016d3b0c64b8b40d984ce6933c, type: 2}
+  delta: 0
+  mTransform: {fileID: 0}
+  coll: {fileID: 0}
+  jumpTimer: 0
+  origin: {x: 0, y: 0}
 --- !u!1 &1133519487
 GameObject:
   m_ObjectHideFlags: 0

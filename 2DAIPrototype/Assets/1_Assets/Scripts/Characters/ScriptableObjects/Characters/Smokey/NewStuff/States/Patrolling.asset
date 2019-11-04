@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Patrolling
   m_EditorClassIdentifier: 
   onFixed: []
-  onUpdate: []
+  onUpdate:
+  - {fileID: 11400000, guid: 84d59dbd5fe026d459647ccb0e5d9bf3, type: 2}
   onEnter: []
   onExit: []
-  idCount: 0
-  transitions: []
+  idCount: 1
+  transitions:
+  - id: 0
+    condition: {fileID: 11400000, guid: a90af70e2fc0cec48be67c4af30d2526, type: 2}
+    targetState: {fileID: 11400000, guid: b6665fa6127b3e548b028d3bc2b9874d, type: 2}
+    disable: 0
