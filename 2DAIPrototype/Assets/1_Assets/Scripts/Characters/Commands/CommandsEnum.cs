@@ -5,5 +5,6 @@
     Left,
     Crouch,
     Attack,
+    Special,
     Idle,
 };

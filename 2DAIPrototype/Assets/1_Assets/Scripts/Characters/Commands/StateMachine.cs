@@ -1,5 +1,4 @@
-﻿using Platformer.Scripts.Characters.StateMachine;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Platformer.Scripts.Characters.StateMachine
 {

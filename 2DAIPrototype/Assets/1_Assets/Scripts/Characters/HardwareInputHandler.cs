@@ -10,6 +10,7 @@ namespace Platformer.Scripts.Characters.Behaviours
         JumpCommand jumpCom;
         CrouchCommand crouchCom;
         IdleCommand idleCom;
+        SpecialCommand specialCom;
 
         private void Start()
         {
@@ -19,6 +20,7 @@ namespace Platformer.Scripts.Characters.Behaviours
             jumpCom = new JumpCommand();
             crouchCom = new CrouchCommand();
             idleCom = new IdleCommand();
+            specialCom = new SpecialCommand();
         }
 
         private void Update()
@@ -34,6 +36,10 @@ namespace Platformer.Scripts.Characters.Behaviours
             else if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 attackCom.Execute(gameObject);
+            }
+            else if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                specialCom.Execute(gameObject);
             }
             else if (Input.GetKey(KeyCode.A))
             {
