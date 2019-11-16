@@ -11,6 +11,8 @@ namespace Platformer.Scripts.Characters.Behaviours
         CrouchCommand crouchCom;
         IdleCommand idleCom;
         SpecialCommand specialCom;
+        AltSpecialCommand altSpecialCom;
+        MindControlCommand mindControlCom;
 
         private void Start()
         {
@@ -21,6 +23,8 @@ namespace Platformer.Scripts.Characters.Behaviours
             crouchCom = new CrouchCommand();
             idleCom = new IdleCommand();
             specialCom = new SpecialCommand();
+            altSpecialCom = new AltSpecialCommand();
+            mindControlCom = new MindControlCommand();
         }
 
         private void Update()
@@ -40,6 +44,14 @@ namespace Platformer.Scripts.Characters.Behaviours
             else if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 specialCom.Execute(gameObject);
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                altSpecialCom.Execute(gameObject);
+            }
+            else if (Input.GetKeyDown(KeyCode.Q))
+            {
+                mindControlCom.Execute(gameObject);
             }
             else if (Input.GetKey(KeyCode.A))
             {

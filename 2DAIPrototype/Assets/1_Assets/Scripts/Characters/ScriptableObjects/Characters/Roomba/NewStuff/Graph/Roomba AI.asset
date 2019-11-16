@@ -39,4 +39,4 @@ MonoBehaviour:
     transRef:
       previousCondition: {fileID: 0}
       transitionId: 0
-  idCount: 1
+  idCount: 2

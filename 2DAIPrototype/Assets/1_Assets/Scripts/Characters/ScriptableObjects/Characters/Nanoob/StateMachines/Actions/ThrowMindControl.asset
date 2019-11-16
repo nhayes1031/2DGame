@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2e2c8dacdbf8c4590c6185023a7386, type: 3}
+  m_Name: ThrowMindControl
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 1820736491499174556, guid: acbde58450ba6c0488d3981e94ca1cc5,
+    type: 3}
+  force: 15
+  direction: 0
+  healthCost: 10
