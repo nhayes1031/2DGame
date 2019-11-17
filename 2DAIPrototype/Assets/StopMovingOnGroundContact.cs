@@ -6,7 +6,7 @@ public class StopMovingOnGroundContact : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         {
-            Rigidbody2D rb2D = GetComponent<Rigidbody2D>();
+            Rigidbody2D rb2D = GetComponentInParent<Rigidbody2D>();
             rb2D.velocity = Vector2.zero;
             rb2D.angularVelocity = 0;
         }

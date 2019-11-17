@@ -21,11 +21,10 @@ public class ExplodeOnCollision : MonoBehaviour
             }
             Destroy(gameObject);
         }
-    }
 
-    public void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(gameObject.transform.position, radius);
+        Debug.DrawLine(transform.position, (Vector2)transform.position + (Vector2.up * radius));
+        Debug.DrawLine(transform.position, (Vector2)transform.position + (Vector2.right * radius));
+        Debug.DrawLine(transform.position, (Vector2)transform.position + (Vector2.down * radius));
+        Debug.DrawLine(transform.position, (Vector2)transform.position + (Vector2.left * radius));
     }
 }
