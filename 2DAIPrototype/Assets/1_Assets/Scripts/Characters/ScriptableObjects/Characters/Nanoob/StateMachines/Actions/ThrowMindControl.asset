@@ -12,8 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2e2c8dacdbf8c4590c6185023a7386, type: 3}
   m_Name: ThrowMindControl
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 1820736491499174556, guid: acbde58450ba6c0488d3981e94ca1cc5,
-    type: 3}
-  force: 15
-  direction: 0
-  healthCost: 10
+  objectSpawner: {fileID: 11400000, guid: 653fdd6da290e6e4699d9fd0455a2e8a, type: 2}
+  Cost: {fileID: 11400000, guid: b75d2342d7191534e96e71d4b725758d, type: 2}

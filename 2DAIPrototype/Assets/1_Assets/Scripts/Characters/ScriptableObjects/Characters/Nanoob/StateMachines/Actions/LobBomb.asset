@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LobBomb
   m_EditorClassIdentifier: 
   objectSpawner: {fileID: 11400000, guid: 8ab36c3337ea6c94688db534c10bcd00, type: 2}
-  healthCost: {fileID: 11400000, guid: 308458abde36e2244b6c829d58c1a362, type: 2}
+  Cost: {fileID: 11400000, guid: 308458abde36e2244b6c829d58c1a362, type: 2}

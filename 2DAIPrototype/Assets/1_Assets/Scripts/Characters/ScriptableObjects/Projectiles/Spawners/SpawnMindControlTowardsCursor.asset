@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a4c6c3fe497a24584760ec542c8114, type: 3}
-  m_Name: SpawnHealthpack
+  m_Script: {fileID: 11500000, guid: d365e9bf5ccbf3744b086f586e71b84b, type: 3}
+  m_Name: SpawnMindControlTowardsCursor
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 2051399340744077149, guid: 82495c5d5441cb04ba4414c1726f1654,
+  objectToSpawn: {fileID: 1820736491499174556, guid: acbde58450ba6c0488d3981e94ca1cc5,
     type: 3}

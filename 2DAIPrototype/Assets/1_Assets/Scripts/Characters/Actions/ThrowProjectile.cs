@@ -7,11 +7,11 @@ namespace Platformer.Scripts.Characters.StateMachine
     public class ThrowProjectile : Action
     {
         public ProjectileSpawner objectSpawner;
-        public AbilityCost healthCost;
+        public AbilityCost Cost;
 
         public override void Act(GameObject obj)
         {
-            healthCost.Run(obj);
+            Cost.Run(obj);
             objectSpawner.Run(obj.transform.position);
         }
 

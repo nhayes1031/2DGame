@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2e2c8dacdbf8c4590c6185023a7386, type: 3}
+  m_Name: DropHealthpack
+  m_EditorClassIdentifier: 
+  objectSpawner: {fileID: 11400000, guid: e4b1e0dbd82706a44a35654a162fffad, type: 2}
+  Cost: {fileID: 11400000, guid: 308458abde36e2244b6c829d58c1a362, type: 2}
