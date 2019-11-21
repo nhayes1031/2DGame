@@ -10,9 +10,9 @@ namespace Platformer.Scripts.Combat
         public override void Run(Vector2 originPoint)
         {
             Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            float angleRad = Mathf.Atan2(mouseScreenPosition.y - originPoint.y, mouseScreenPosition.x - originPoint.x);
-            float angleDeg = Mathf.Rad2Deg * angleRad;
-            Instantiate(objectToSpawn, originPoint, Quaternion.Euler(0, 0, angleDeg));
+            Vector2 difference = mouseScreenPosition - originPoint;
+            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            Instantiate(objectToSpawn, originPoint, Quaternion.Euler(0, 0, rotationZ));
         }
     }
 }
