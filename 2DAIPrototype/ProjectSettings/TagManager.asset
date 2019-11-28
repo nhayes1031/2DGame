@@ -16,14 +16,14 @@ TagManager:
   - UI
   - 
   - 
-  - Player
+  - Character
   - Environment
-  - Enemy
+  - 
   - Projectiles
   - Pushbox
   - Hitbox
   - Hurtbox
-  - Pickupable
+  - 
   - 
   - 
   - 
