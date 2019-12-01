@@ -5,9 +5,10 @@ namespace Platformer.Scripts.Combat
     [CreateAssetMenu(menuName = "Combat/Projectile/Spawn/AtOrigin")]
     public class SpawnAtOrigin : ProjectileSpawner
     {
-        public override void Run(Vector2 originPoint)
+        public override void Run(GameObject obj)
         {
-            Instantiate(objectToSpawn, originPoint, Quaternion.Euler(0, 0, 0));
+            Vector2 psp = findProjectileSpawnPoint(obj);
+            Instantiate(objectToSpawn, psp, Quaternion.Euler(0, 0, 0));
         }
     }
 }

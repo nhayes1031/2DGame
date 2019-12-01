@@ -11,12 +11,8 @@ namespace Platformer.Scripts.Characters.StateMachine
 
         public override void Act(GameObject obj)
         {
-            SpawnLocation sl = obj.GetComponent<SpawnLocation>();
-
-            Vector2 originPoint = sl != null ? sl.location.position : obj.transform.position;
-
             Cost.Run(obj);
-            objectSpawner.Run(originPoint);
+            objectSpawner.Run(obj);
         }
 
         public override void OnEnter()

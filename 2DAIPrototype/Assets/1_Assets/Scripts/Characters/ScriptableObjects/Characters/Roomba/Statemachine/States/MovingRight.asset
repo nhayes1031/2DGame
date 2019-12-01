@@ -16,3 +16,7 @@ MonoBehaviour:
   transitions:
   - reason: 2
     trueState: {fileID: 11400000, guid: f944bbd6b8b5d834abf2664a4c47f6e9, type: 2}
+  - reason: 6
+    trueState: {fileID: 11400000, guid: ae28319a6244c2e41b0b5862d7817104, type: 2}
+  - reason: 8
+    trueState: {fileID: 11400000, guid: 1222cfe3df610c0498e64ff01ce97c74, type: 2}
