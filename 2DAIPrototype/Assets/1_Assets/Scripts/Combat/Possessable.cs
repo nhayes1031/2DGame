@@ -23,12 +23,14 @@ public class Possessable : MonoBehaviour
 
     public void Exorcised()
     {
-        GameObject newPlayer = Instantiate(playerPrefab, transform.position, transform.rotation);
+        GameObject newPlayer = Instantiate(playerPrefab, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
         CameraManager cm = GameObject.Find("CameraManager").GetComponent<CameraManager>();
         cm.Follow(newPlayer.transform);
 
         sm.enabled = true;
 
         tag = "Untagged";
+
+        Destroy(gameObject.GetComponent<HardwareInputHandler>());
     }
 }

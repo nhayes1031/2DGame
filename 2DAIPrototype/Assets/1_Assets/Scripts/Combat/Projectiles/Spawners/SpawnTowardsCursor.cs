@@ -13,7 +13,7 @@ namespace Platformer.Scripts.Combat
             float dotProd = CrossProduct(mouseScreenPosition, psp);
             float rotationY = dotProd < 0 ? 0 : 180f;
             ProjectileData pd = Instantiate(objectToSpawn, psp, Quaternion.Euler(0, rotationY, rotationZ)).GetComponent<ProjectileData>();
-            pd.SetParentId(obj.gameObject.GetInstanceID());
+            pd.SetParentId(obj.transform.GetInstanceID());
         }
 
         private float CrossProduct(Vector2 A, Vector2 B)

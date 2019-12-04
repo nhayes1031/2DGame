@@ -22,3 +22,5 @@ MonoBehaviour:
     trueState: {fileID: 11400000, guid: a24552d683925ce42ae291f5fb889022, type: 2}
   - reason: 4
     trueState: {fileID: 11400000, guid: 092a996ac1ec2b74a8a1134f3fb8aec9, type: 2}
+  - reason: 8
+    trueState: {fileID: 11400000, guid: 7070d9e65db471d4e8f19e917fa3884e, type: 2}

@@ -2,10 +2,10 @@
 
 public class DestroyOnCollision : MonoBehaviour
 {
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        ProjectileData pd = GetComponent<ProjectileData>();
-        if (pd.ParentId != collision.gameObject.GetInstanceID())
+        int parentId = GetComponent<ProjectileData>().ParentId;
+        if (parentId != collision.transform.parent.GetInstanceID())
         {
             Destroy(gameObject);
         }
