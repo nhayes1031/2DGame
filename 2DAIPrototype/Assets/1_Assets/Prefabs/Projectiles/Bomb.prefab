@@ -85,8 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ab86ec5837c141b29054e3718feab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingAngle: 45
-  gravity: 9.81
+  firingAngle: 84.56
+  gravityScale: 1
 --- !u!114 &-3665983578236451006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   radius: 0.5
-  origin: {fileID: 0}
 --- !u!114 &1464963915365753928
 MonoBehaviour:
   m_ObjectHideFlags: 0

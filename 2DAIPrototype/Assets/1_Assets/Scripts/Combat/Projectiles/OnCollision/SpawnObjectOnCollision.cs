@@ -3,17 +3,34 @@
 public class SpawnObjectOnCollision : MonoBehaviour
 {
     [SerializeField] private GameObject objectToSpawn;
+    private BoxCollider2D objectToSpawnCollider;
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void Awake()
     {
-        if (collision.gameObject.layer == 9)
-        {
-            Instantiate(objectToSpawn, transform.position, transform.rotation);
-        }
+        objectToSpawnCollider = objectToSpawn.GetComponentInChildren<BoxCollider2D>();
     }
 
-    private void CheckIfValidSpawnPosition()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // TODO: Loop using box cast and find if there is a suitable spawn location.
+        if (collision.gameObject.layer != 8)
+        {
+            Vector3 size = objectToSpawnCollider.bounds.size;
+            Vector3 center = transform.position;
+
+            for (int i = 0; i < 5; i++)
+            {
+                Collider2D[] colliders = Physics2D.OverlapBoxAll(center, size, 0);
+
+                // TODO: Maybe projectiles need to use the physics system.
+
+                if (colliders.Length == 0)
+                {
+                    Instantiate(objectToSpawn, center, Quaternion.Euler(0, 0, 0));
+                    return;
+                }
+
+                center += new Vector3(0, objectToSpawnCollider.bounds.extents.y, 0);
+            }
+        }
     }
 }
