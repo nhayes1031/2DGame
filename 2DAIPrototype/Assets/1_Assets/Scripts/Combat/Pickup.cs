@@ -28,6 +28,15 @@ namespace Platformer.Scripts.Combat
             }
         }
 
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.transform.tag == "Player" && pickupable)
+            {
+                collision.GetComponentInParent<Health>().TakeDamage(-healAmount);
+                Destroy(gameObject);
+            }
+        }
+
         IEnumerator DelayPickup()
         {
             yield return new WaitForSeconds(TimeBeforeBeingPickupable);

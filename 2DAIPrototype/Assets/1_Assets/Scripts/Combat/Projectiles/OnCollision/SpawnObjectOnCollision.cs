@@ -12,17 +12,14 @@ public class SpawnObjectOnCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer != 8)
+        if (collision.gameObject.layer != 8 && collision.gameObject.layer != 12)
         {
             Vector3 size = objectToSpawnCollider.bounds.size;
             Vector3 center = transform.position;
 
             for (int i = 0; i < 5; i++)
             {
-                Collider2D[] colliders = Physics2D.OverlapBoxAll(center, size, 0);
-
-                // TODO: Maybe projectiles need to use the physics system.
-
+                Collider2D[] colliders = Physics2D.OverlapBoxAll(center, size, 0, 9);
                 if (colliders.Length == 0)
                 {
                     Instantiate(objectToSpawn, center, Quaternion.Euler(0, 0, 0));

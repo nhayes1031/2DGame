@@ -23,8 +23,8 @@ TagManager:
   - Pushbox
   - Hitbox
   - Hurtbox
-  - 
-  - 
+  - Consumable
+  - ConsumablePushbox
   - 
   - 
   - 

@@ -87,8 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ab86ec5837c141b29054e3718feab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingAngle: 45
-  gravityScale: 1
+  heightAtApex: 1
 --- !u!114 &-7541995488967164989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46de154c8b8bf364a84e1810b28a54c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 2051399340744077149, guid: 82495c5d5441cb04ba4414c1726f1654,
+  objectToSpawn: {fileID: 8959025505591265988, guid: 7db106c8066a61349bb45e9c2629a1e2,
     type: 3}
 --- !u!1 &1820736492112426109
 GameObject:
