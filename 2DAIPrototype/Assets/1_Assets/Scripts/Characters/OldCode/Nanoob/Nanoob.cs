@@ -1,5 +1,4 @@
 ﻿using Platformer.Saving;
-using Platformer.Scripts.Abilities.Mindcontrol;
 using UnityEngine;
 
 namespace Platformer.Scripts.Characters.Nanoobs
@@ -41,22 +40,6 @@ namespace Platformer.Scripts.Characters.Nanoobs
             {
                 nanoobMovement.OnJumpInputUp();
             }
-        }
-
-        private void SomethingWasHit(string tag)
-        {
-            if (tag == "Controllable")
-            {
-                Destroy(gameObject);
-            }
-        }
-
-        public void Instantiate(Quaternion rotation)
-        {
-            GameObject newObj = Instantiate(bulletPrefab, firePoint.position, rotation);
-            Mindcontrol mc = newObj.GetComponent<Mindcontrol>();
-            mc.iHitSomething = SomethingWasHit;
-            mc.SetDirection((Vector2)firePoint.position - (Vector2)transform.position);
         }
 
         public object CaptureState()

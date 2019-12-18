@@ -8,6 +8,7 @@ namespace Platformer.Scripts.Characters.StateMachine
     {
         public ProjectileSpawner objectSpawner;
         public AbilityCost Cost;
+        public AbilityCooldown Cooldown;
 
         public override void Act(GameObject obj)
         {

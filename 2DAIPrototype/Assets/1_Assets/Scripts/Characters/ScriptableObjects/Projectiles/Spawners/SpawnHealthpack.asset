@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0284dc0bb40792241b08cbb5619cb693, type: 3}
   m_Name: SpawnHealthpack
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 2051399340744077149, guid: 82495c5d5441cb04ba4414c1726f1654,
+  objectToSpawn: {fileID: 8959025505591265988, guid: 7db106c8066a61349bb45e9c2629a1e2,
     type: 3}

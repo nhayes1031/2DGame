@@ -20,7 +20,6 @@ public class ExplodeOnCollision : MonoBehaviour
                     health.TakeDamage(damage);
                 }
             }
-            Destroy(gameObject);
 
             Debug.DrawLine(transform.position, (Vector2)transform.position + (Vector2.up * radius));
             Debug.DrawLine(transform.position, (Vector2)transform.position + (Vector2.right * radius));

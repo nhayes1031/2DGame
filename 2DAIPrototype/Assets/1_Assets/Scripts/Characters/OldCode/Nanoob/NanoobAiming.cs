@@ -20,11 +20,6 @@ namespace Platformer.Scripts.Characters.Nanoobs
         public void Tick()
         {
             MoveReticle();
-
-            if (nanoobInput.PossessionPressed)
-            {
-                nanoob.Instantiate(reticleToAim.rotation);
-            }
         }
 
         private void MoveReticle()
