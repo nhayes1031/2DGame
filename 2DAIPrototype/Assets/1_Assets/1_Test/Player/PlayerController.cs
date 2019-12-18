@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,29 +6,50 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Jump();
+        Move();
+        FlipSprite(mouseScreenPosition);
+        Aim(mouseScreenPosition);
+        Attack();
+    }
+
+    private void Jump()
+    {
         if (Input.GetButtonDown("Jump"))
         {
             anim.SetTrigger("Jump");
         }
+    }
 
+    private void Move()
+    {
         float horizontal = Input.GetAxis("Horizontal");
         anim.SetFloat("Magnitude", Mathf.Abs(horizontal));
+    }
 
-        Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float rotationZ = Mathf.Rad2Deg * Mathf.Atan2(Mathf.Abs(mouseScreenPosition.y - transform.position.y), Mathf.Abs(mouseScreenPosition.x - transform.position.x));
-        float aimAngle = rotationZ * (mouseScreenPosition.y >= transform.position.y ? 1 : -1);
-        anim.SetFloat("AimAngle", aimAngle);
-
-        // This breaks in quadrant 3
-        bool isLeft = CrossProduct(mouseScreenPosition, transform.position) > 1 ? false : true;
-        if (isLeft)
+    private void FlipSprite(Vector2 msp)
+    {
+        if (msp.x < transform.position.x)
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         } else
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
+    }
 
+    private void Aim(Vector2 msp)
+    {
+        float rotationZ = Mathf.Rad2Deg * Mathf.Atan2(Mathf.Abs(msp.y - transform.position.y), Mathf.Abs(msp.x - transform.position.x));
+
+        float aimAngle = rotationZ * (msp.y >= transform.position.y ? 1 : -1);
+        anim.SetFloat("AimAngle", aimAngle);
+    }
+
+    private void Attack()
+    {
         if (Input.GetButtonDown("Left Click"))
         {
             anim.SetTrigger("Special");
