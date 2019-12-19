@@ -8,11 +8,15 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Jump();
-        Move();
         FlipSprite(mouseScreenPosition);
         Aim(mouseScreenPosition);
         Attack();
+    }
+
+    private void FixedUpdate()
+    {
+        Jump();
+        Move();
     }
 
     private void Jump()
