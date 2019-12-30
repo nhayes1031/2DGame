@@ -31,11 +31,6 @@ public class PlayerPlatformerController : PhysicsObject
                 velocity.y = velocity.y * .5f;
         }
 
-        if (move.x < 0.01f)
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        else
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-
         targetVelocity = move * maxSpeed;
 
         animator.SetBool("IsGrounded", grounded);
