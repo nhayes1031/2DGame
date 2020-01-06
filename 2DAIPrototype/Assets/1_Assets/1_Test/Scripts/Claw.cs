@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
+    // TODO: Why do I have to times the return speed by 100?
+
     private Transform playerTransform;
     private PlayerAimController playerAimController;
     private PlayerPlatformerController playerPlatformerController;
@@ -62,6 +62,9 @@ public class Claw : MonoBehaviour
         {
             spriteRenderer.sprite = successfulHitSprite;
             playerPlatformerController.EnableDoubleJump();
+
+            AbilityData abilityData = collision.GetComponent<AbilityData>();
+            playerPlatformerController.SetDynamicAbility(abilityData.ability);
         }
         isReturning = true;
     }
