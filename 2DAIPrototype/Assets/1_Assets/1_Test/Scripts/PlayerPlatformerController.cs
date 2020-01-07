@@ -77,12 +77,13 @@ public class PlayerPlatformerController : PhysicsObject
                 velocity.y = velocity.y * .5f;
         }
 
+        targetVelocity = move * maxSpeed;
+
         if (currentDash < allowedDashes && Input.GetButtonDown("Fire3"))
         {
+            currentDash++;
             StartCoroutine(Boost());
         }
-
-        targetVelocity = move * maxSpeed;
 
         animator.SetBool("IsGrounded", Grounded);
         animator.SetFloat("Magnitude", targetVelocity.magnitude);
@@ -100,13 +101,12 @@ public class PlayerPlatformerController : PhysicsObject
 
     IEnumerator Boost()
     {
-        currentDash++;
         float dashTimer = .5f;
         float elapsedTime = 0;
         while (elapsedTime < dashTimer)
         {
             elapsedTime += Time.deltaTime;
-            rb2D.velocity *= dashSpeed;
+            targetVelocity *= dashSpeed;
             yield return 0;
         }
         yield return new WaitForSeconds(dashCooldown);
