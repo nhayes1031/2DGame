@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace Assets._1_Assets._1_Test.Scripts.State
 
         public State Update(PhysicsObject po)
         {
+            Debug.Log("Dashing State");
+
             if (!isDashing)
             {
                 isDashing = true;
@@ -24,16 +27,16 @@ namespace Assets._1_Assets._1_Test.Scripts.State
                 Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
                 Vector2 normalizedDirection = direction.normalized;
 
-                po.targetVelocity = normalizedDirection * dashSpeed;
+                po.targetVelocity = normalizedDirection * dashSpeed * 10;
 
-                po.Invoke("CompleteDash", dashDuration);
+                po.StartCoroutine(CompleteDash());
             }
 
             if (dashCompleted)
             {
                 if (Input.GetButtonDown("Jump"))
                     return new JumpingState();
-                if (!po.Grounded)
+                if (!po.grounded)
                     return new FallingState();
                 else
                     return new RunningState();
@@ -41,8 +44,10 @@ namespace Assets._1_Assets._1_Test.Scripts.State
             return this;
         }
 
-        private void CompleteDash()
+        private IEnumerator CompleteDash()
         {
+            yield return new WaitForSeconds(dashDuration);
+
             dashCompleted = true;
         }
     }

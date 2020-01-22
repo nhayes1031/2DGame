@@ -21,7 +21,7 @@ namespace Assets._1_Assets._1_Test.Scripts.State
 
             if (Input.GetButtonDown("Fire3"))
                 return new DashingState();
-            if (!po.Grounded)
+            if (!po.grounded)
                 return new FallingState();
             else
                 return new RunningState();

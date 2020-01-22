@@ -25,7 +25,7 @@ namespace Assets._1_Assets._1_Test.Scripts.State
                 return new JumpingState();
             if (Input.GetButtonDown("Fire3"))
                 return new DashingState();
-            if (po.Grounded)
+            if (po.grounded)
             {
                 animator.SetBool("IsFalling", false);
                 return new RunningState();

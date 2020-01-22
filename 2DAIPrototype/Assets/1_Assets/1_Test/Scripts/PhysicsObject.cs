@@ -12,7 +12,7 @@ public class PhysicsObject : MonoBehaviour
     public float gravityModifier = 1f;
 
     public Vector2 targetVelocity;
-    private bool grounded;
+    public bool grounded;
     protected Vector2 groundNormal;
     protected Vector2 velocity;
     protected Rigidbody2D rb2D;
@@ -25,19 +25,6 @@ public class PhysicsObject : MonoBehaviour
 
     protected delegate void GroundedChanged();
     protected GroundedChanged groundedChanged;
-
-    public bool Grounded { 
-        get => grounded;
-        set
-        {
-            if (grounded != value)
-            {
-                grounded = value;
-                groundedChanged();
-            } else
-                grounded = value;
-        }
-    }
 
     private void OnEnable()
     {
@@ -62,7 +49,7 @@ public class PhysicsObject : MonoBehaviour
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
         velocity.x = targetVelocity.x;
 
-        Grounded = false;
+        grounded = false;
 
         Vector2 deltaPosition = velocity * Time.deltaTime;
 
@@ -94,7 +81,7 @@ public class PhysicsObject : MonoBehaviour
                 Vector2 currentNormal = hitBufferList[i].normal;
                 if (currentNormal.y > minGroundNormalY)
                 {
-                    Grounded = true;
+                    grounded = true;
                     if (yMove)
                     {
                         groundNormal = currentNormal;
