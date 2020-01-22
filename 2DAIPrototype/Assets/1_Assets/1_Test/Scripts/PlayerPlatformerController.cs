@@ -1,50 +1,38 @@
-﻿using System.Collections;
+﻿using Assets._1_Assets._1_Test.Scripts.State;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerPlatformerController : PhysicsObject
 {
-    public float maxSpeed = 7f;
     public float jumpTakeOffSpeed = 7f;
 
     private int allowedJumps = 1;
     private int currentJumps = 0;
 
-    private int allowedDashes = 0;
-    private int currentDash = 0;
-    private bool isDashing = false;
-    [SerializeField] private float dashSpeed = 7f;
-    [SerializeField] private float dashCooldown = 1f;
-
     private Vector2 input = Vector2.zero;
 
     private Animator animator;
 
+    private State state = new RunningState();
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        groundedChanged += onGroundedChanged;
     }
 
-    protected void onGroundedChanged()
+    private void EnableDoubleJump()
     {
-        if (Grounded == true)
-            currentJumps = 0;
+        Debug.Log("Double Jump Enabled");
     }
 
-    public void EnableDoubleJump()
+    private void EnableDash()
     {
-        allowedJumps = 2;
-    }
-
-    public void EnableDash()
-    {
-        allowedDashes = 1;
+        Debug.Log("Dash Enabled");
     }
 
     public void ResetDynamicAbility()
     {
-        allowedJumps = 1;
-        allowedDashes = 0;
+        Debug.Log("Dash and Double Jump Disabled");
     }
 
     public void SetDynamicAbility(AbilityNames abilityName)
@@ -62,18 +50,14 @@ public class PlayerPlatformerController : PhysicsObject
 
     protected override void ComputeVelocity()
     {
-        input.x = Input.GetAxis("Horizontal");
-        input.y = Input.GetAxis("Vertical");
-        if (Input.GetButtonDown("Jump"))
-            Jump();
-        else if (Input.GetButtonDown("Fire3"))
-            Dash();
-        else
-            Move();
+        State newState = state.Update(this);
+        if (newState != null)
+        {
+            state = newState;
+        }
 
         AssignAnimatorVariables();
     }
-
     private void AssignAnimatorVariables()
     {
         animator.SetBool("IsGrounded", Grounded);
@@ -87,55 +71,13 @@ public class PlayerPlatformerController : PhysicsObject
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump") && currentJumps < allowedJumps)
+        if (Input.GetButtonUp("Jump"))
+            if (targetVelocity.y > 0)
+                velocity.y = velocity.y * .5f;
+        else
         {
-            currentJumps++;
             animator.SetTrigger("Jump");
             velocity.y = jumpTakeOffSpeed;
         }
-        else if (Input.GetButtonUp("Jump"))
-        {
-            if (targetVelocity.y > 0)
-                velocity.y = velocity.y * .5f;
-        }
-    }
-
-    private void Dash()
-    {
-        if (currentDash < allowedDashes && Input.GetButtonDown("Fire3"))
-        {
-            currentDash++;
-            isDashing = true;
-            StartCoroutine(Boost(input));
-        }
-
-        if (Grounded)
-        {
-            currentDash = 0;
-        }
-    }
-
-    private void Move()
-    {
-        Vector2 move = Vector2.zero;
-
-        if (!isDashing)
-            move.x = input.x;
-
-        targetVelocity = move * maxSpeed;
-    }
-
-    IEnumerator Boost(Vector2 move)
-    {
-        float dashTimer = .5f;
-        float elapsedTime = 0;
-        while (elapsedTime < dashTimer)
-        {
-            elapsedTime += Time.deltaTime;
-            targetVelocity *= dashSpeed;
-            yield return 0;
-        }
-        isDashing = false;
-        yield return new WaitForSeconds(dashCooldown);
     }
 }

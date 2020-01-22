@@ -17,6 +17,7 @@ public class Claw : MonoBehaviour
 
     private Vector2 originPoint;
     private bool isReturning = false;
+    private bool carryingAbility = false;
 
     private void Awake()
     {
@@ -58,10 +59,10 @@ public class Claw : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" && !carryingAbility)
         {
             spriteRenderer.sprite = successfulHitSprite;
-            playerPlatformerController.EnableDoubleJump();
+            carryingAbility = true;
 
             AbilityData abilityData = collision.GetComponent<AbilityData>();
             playerPlatformerController.SetDynamicAbility(abilityData.ability);

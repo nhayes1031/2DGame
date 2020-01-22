@@ -11,7 +11,7 @@ public class PhysicsObject : MonoBehaviour
     public float minGroundNormalY = .65f;
     public float gravityModifier = 1f;
 
-    protected Vector2 targetVelocity;
+    public Vector2 targetVelocity;
     private bool grounded;
     protected Vector2 groundNormal;
     protected Vector2 velocity;
@@ -26,7 +26,7 @@ public class PhysicsObject : MonoBehaviour
     protected delegate void GroundedChanged();
     protected GroundedChanged groundedChanged;
 
-    protected bool Grounded { 
+    public bool Grounded { 
         get => grounded;
         set
         {
