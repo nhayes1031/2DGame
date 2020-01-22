@@ -759,8 +759,8 @@ MonoBehaviour:
   gravityModifier: 1
   maxSpeed: 7
   jumpTakeOffSpeed: 7
-  dashSpeed: 5
-  dashCooldown: 1
+  dashSpeed: 3
+  dashCooldown: 3
 --- !u!61 &6892343706170026731
 BoxCollider2D:
   m_ObjectHideFlags: 0

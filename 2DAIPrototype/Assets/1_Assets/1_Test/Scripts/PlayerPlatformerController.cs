@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class PlayerPlatformerController : PhysicsObject
 {
-    //TODO: Dash isn't working correctly. It won't successfully dash on left shift
-
     public float maxSpeed = 7f;
     public float jumpTakeOffSpeed = 7f;
 
@@ -13,8 +11,11 @@ public class PlayerPlatformerController : PhysicsObject
 
     private int allowedDashes = 0;
     private int currentDash = 0;
-    [SerializeField] private float dashSpeed = 15f;
+    private bool isDashing = false;
+    [SerializeField] private float dashSpeed = 7f;
     [SerializeField] private float dashCooldown = 1f;
+
+    private Vector2 input = Vector2.zero;
 
     private Animator animator;
 
@@ -61,30 +62,20 @@ public class PlayerPlatformerController : PhysicsObject
 
     protected override void ComputeVelocity()
     {
-        Vector2 move = Vector2.zero;
+        input.x = Input.GetAxis("Horizontal");
+        input.y = Input.GetAxis("Vertical");
+        if (Input.GetButtonDown("Jump"))
+            Jump();
+        else if (Input.GetButtonDown("Fire3"))
+            Dash();
+        else
+            Move();
 
-        move.x = Input.GetAxis("Horizontal");
+        AssignAnimatorVariables();
+    }
 
-        if (Input.GetButtonDown("Jump") && currentJumps < allowedJumps)
-        {
-            currentJumps++;
-            animator.SetTrigger("Jump");
-            velocity.y = jumpTakeOffSpeed;
-        } 
-        else if (Input.GetButtonUp("Jump"))
-        {
-            if (move.y > 0)
-                velocity.y = velocity.y * .5f;
-        }
-
-        targetVelocity = move * maxSpeed;
-
-        if (currentDash < allowedDashes && Input.GetButtonDown("Fire3"))
-        {
-            currentDash++;
-            StartCoroutine(Boost());
-        }
-
+    private void AssignAnimatorVariables()
+    {
         animator.SetBool("IsGrounded", Grounded);
         animator.SetFloat("Magnitude", targetVelocity.magnitude);
 
@@ -92,6 +83,31 @@ public class PlayerPlatformerController : PhysicsObject
             animator.SetBool("IsFalling", true);
         else
             animator.SetBool("IsFalling", false);
+    }
+
+    private void Jump()
+    {
+        if (Input.GetButtonDown("Jump") && currentJumps < allowedJumps)
+        {
+            currentJumps++;
+            animator.SetTrigger("Jump");
+            velocity.y = jumpTakeOffSpeed;
+        }
+        else if (Input.GetButtonUp("Jump"))
+        {
+            if (targetVelocity.y > 0)
+                velocity.y = velocity.y * .5f;
+        }
+    }
+
+    private void Dash()
+    {
+        if (currentDash < allowedDashes && Input.GetButtonDown("Fire3"))
+        {
+            currentDash++;
+            isDashing = true;
+            StartCoroutine(Boost(input));
+        }
 
         if (Grounded)
         {
@@ -99,7 +115,17 @@ public class PlayerPlatformerController : PhysicsObject
         }
     }
 
-    IEnumerator Boost()
+    private void Move()
+    {
+        Vector2 move = Vector2.zero;
+
+        if (!isDashing)
+            move.x = input.x;
+
+        targetVelocity = move * maxSpeed;
+    }
+
+    IEnumerator Boost(Vector2 move)
     {
         float dashTimer = .5f;
         float elapsedTime = 0;
@@ -109,6 +135,7 @@ public class PlayerPlatformerController : PhysicsObject
             targetVelocity *= dashSpeed;
             yield return 0;
         }
+        isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
     }
 }
