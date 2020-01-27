@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Assets._1_Assets._1_Test.Scripts.State
@@ -13,42 +8,56 @@ namespace Assets._1_Assets._1_Test.Scripts.State
         private bool dashCompleted = false;
         private bool isDashing = false;
 
-        private float dashSpeed = 10f;
-        private float dashDuration = 1f;
+        private Vector2 direction = Vector2.zero;
 
-        public State Update(PhysicsObject po)
+        public DashingState()
         {
-            Debug.Log("Dashing State");
+            direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+            if (direction == Vector2.zero)
+                direction = new Vector2(1, 0);
+        }
 
+        public State Update(PhysicsObject po, PlayerData playerData)
+        {
+            if (playerData.CurrentDashes >= playerData.AllowedDashes)
+                return TransitionCheck(po);
+
+            Animator animator = po.GetComponent<Animator>();
+
+            po.SetVelocity(direction * playerData.DashSpeed);
             if (!isDashing)
             {
                 isDashing = true;
-
-                Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-                Vector2 normalizedDirection = direction.normalized;
-
-                po.targetVelocity = normalizedDirection * dashSpeed * 10;
-
-                po.StartCoroutine(CompleteDash());
+                po.StartCoroutine(CompleteDash(playerData));
+                if (animator != null)
+                    animator.SetBool("IsDashing", true);
             }
 
             if (dashCompleted)
             {
-                if (Input.GetButtonDown("Jump"))
-                    return new JumpingState();
-                if (!po.grounded)
-                    return new FallingState();
-                else
-                    return new RunningState();
+                playerData.IncrementCurrentDashes();
+                if (animator != null)
+                    animator.SetBool("IsDashing", false);
+                return TransitionCheck(po);
             }
             return this;
         }
 
-        private IEnumerator CompleteDash()
+        private IEnumerator CompleteDash(PlayerData playerData)
         {
-            yield return new WaitForSeconds(dashDuration);
+            yield return new WaitForSeconds(playerData.DashDuration);
 
             dashCompleted = true;
+        }
+
+        private State TransitionCheck(PhysicsObject po)
+        {
+            if (Input.GetButtonDown("Jump"))
+                return new JumpingState();
+            if (!po.Grounded)
+                return new FallingState();
+            else
+                return new RunningState();
         }
     }
 }

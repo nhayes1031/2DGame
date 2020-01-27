@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets._1_Assets._1_Test.Scripts.State
 {
     class FallingState : State
     {
-        private float maxSpeed = 4f;
-
-        public State Update(PhysicsObject po)
+        public State Update(PhysicsObject po, PlayerData playerData)
         {
             Vector2 move = Vector2.zero;
             move.x = Input.GetAxis("Horizontal");
-            po.targetVelocity = move * maxSpeed;
+            po.SetVelocity(move * playerData.FallingMaxSpeed);
 
             Animator animator = po.GetComponent<Animator>();
             if (animator != null)
@@ -25,7 +18,7 @@ namespace Assets._1_Assets._1_Test.Scripts.State
                 return new JumpingState();
             if (Input.GetButtonDown("Fire3"))
                 return new DashingState();
-            if (po.grounded)
+            if (po.Grounded)
             {
                 animator.SetBool("IsFalling", false);
                 return new RunningState();

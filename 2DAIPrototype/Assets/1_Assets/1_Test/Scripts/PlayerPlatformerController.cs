@@ -1,29 +1,42 @@
 ﻿using Assets._1_Assets._1_Test.Scripts.State;
+using Assets._1_Assets._1_Test.Scripts;
 using UnityEngine;
 
 public class PlayerPlatformerController : PhysicsObject
 {
     private Animator animator;
     private State state = new RunningState();
+    private PlayerData playerData = new PlayerData();
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        groundedChanged += onGroundedChanged;
+    }
+
+    protected void onGroundedChanged()
+    {
+        if (Grounded == true)
+        {
+            playerData.ResetCurrentJumps();
+            playerData.ResetCurrentDashes();
+        }
     }
 
     private void EnableDoubleJump()
     {
-        Debug.Log("Double Jump Enabled");
+        playerData.IncrementAllowedJumps();
     }
 
     private void EnableDash()
     {
-        Debug.Log("Dash Enabled");
+        playerData.IncrementAllowedDashes();
     }
 
-    public void ResetDynamicAbility()
+    private void ResetDynamicAbility()
     {
-        Debug.Log("Dash and Double Jump Disabled");
+        playerData.ResetAllowedJumps();
+        playerData.ResetAllowedDashes();
     }
 
     public void SetDynamicAbility(AbilityNames abilityName)
@@ -41,15 +54,15 @@ public class PlayerPlatformerController : PhysicsObject
 
     protected override void ComputeVelocity()
     {
-        state = state.Update(this);
+        state = state.Update(this, playerData);
 
         AssignAnimatorVariables();
     }
 
     private void AssignAnimatorVariables()
     {
-        animator.SetBool("IsGrounded", grounded);
-        animator.SetFloat("Magnitude", targetVelocity.magnitude);
+        animator.SetBool("IsGrounded", Grounded);
+        animator.SetFloat("Magnitude", TargetVelocity.magnitude);
 
         if (velocity.y < 0)
             animator.SetBool("IsFalling", true);

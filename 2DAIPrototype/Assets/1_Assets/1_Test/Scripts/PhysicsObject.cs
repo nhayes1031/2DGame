@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PhysicsObject : MonoBehaviour
@@ -10,9 +9,9 @@ public class PhysicsObject : MonoBehaviour
 
     public float minGroundNormalY = .65f;
     public float gravityModifier = 1f;
+    private bool grounded;
 
-    public Vector2 targetVelocity;
-    public bool grounded;
+    private Vector2 targetVelocity;
     protected Vector2 groundNormal;
     protected Vector2 velocity;
     protected Rigidbody2D rb2D;
@@ -26,6 +25,23 @@ public class PhysicsObject : MonoBehaviour
     protected delegate void GroundedChanged();
     protected GroundedChanged groundedChanged;
 
+    public bool Grounded
+    {
+        get => grounded;
+        set
+        {
+            if (grounded != value)
+            {
+                grounded = value;
+                groundedChanged();
+            }
+            else
+                grounded = value;
+        }
+    }
+
+    public Vector2 TargetVelocity { get => targetVelocity; protected set => targetVelocity = value; }
+
     private void OnEnable()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -33,7 +49,7 @@ public class PhysicsObject : MonoBehaviour
 
     private void Update()
     {
-        targetVelocity = Vector2.zero;
+        TargetVelocity = Vector2.zero;
         ComputeVelocity();
     }
 
@@ -44,12 +60,20 @@ public class PhysicsObject : MonoBehaviour
         contactFilter.useLayerMask = true;
     }
 
+    public void SetVelocity(Vector2 velocity)
+    {
+        TargetVelocity = velocity;
+
+        if (velocity.y != 0)
+            this.velocity.y = velocity.y / 1.75f;
+    }
+
     private void FixedUpdate()
     {
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
-        velocity.x = targetVelocity.x;
+        velocity.x = TargetVelocity.x;
 
-        grounded = false;
+        Grounded = false;
 
         Vector2 deltaPosition = velocity * Time.deltaTime;
 
@@ -81,7 +105,7 @@ public class PhysicsObject : MonoBehaviour
                 Vector2 currentNormal = hitBufferList[i].normal;
                 if (currentNormal.y > minGroundNormalY)
                 {
-                    grounded = true;
+                    Grounded = true;
                     if (yMove)
                     {
                         groundNormal = currentNormal;

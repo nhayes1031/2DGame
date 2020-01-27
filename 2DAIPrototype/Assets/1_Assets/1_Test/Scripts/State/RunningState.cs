@@ -1,31 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets._1_Assets._1_Test.Scripts.State
 {
     class RunningState : State
     {
-        private float maxSpeed = 7f;
-
-        public State Update(PhysicsObject po)
+        public State Update(PhysicsObject po, PlayerData playerData)
         {
             Vector2 move = Vector2.zero;
             move.x = Input.GetAxis("Horizontal");
-            po.targetVelocity = move * maxSpeed;
+            po.SetVelocity(move * playerData.MaxSpeed);
 
             Animator animator = po.GetComponent<Animator>();
             if (animator != null)
-                animator.SetFloat("Magnitude", po.targetVelocity.magnitude);
+                animator.SetFloat("Magnitude", po.TargetVelocity.magnitude);
 
             if (Input.GetButtonDown("Jump"))
                 return new JumpingState();
             if (Input.GetButtonDown("Fire3"))
                 return new DashingState();
-            if (!po.grounded)
+            if (!po.Grounded)
                 return new FallingState();
             return this;
         }

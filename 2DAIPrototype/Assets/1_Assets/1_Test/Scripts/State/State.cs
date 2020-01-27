@@ -2,6 +2,6 @@
 {
     public interface State
     {
-        State Update(PhysicsObject po);
+        State Update(PhysicsObject po, PlayerData playerData);
     }
 }
